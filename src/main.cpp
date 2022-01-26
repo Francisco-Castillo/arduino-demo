@@ -1,18 +1,28 @@
 #include <Arduino.h>
 
-int led = 13;
+int ledVerde = 11;
+int ledAmarillo = 12;
+int ledRojo = 13;
+int tiempoEspera = 5000;
 
 void setup() {
-  pinMode(led, OUTPUT);
+  pinMode(ledVerde, OUTPUT);
+  pinMode(ledAmarillo, OUTPUT);
+  pinMode(ledRojo, OUTPUT);
+
   Serial.begin(9600);
 }
 
 void loop() {
-  digitalWrite(led, HIGH);
-  Serial.println("1");
-  delay(2000);
+  digitalWrite(ledRojo, HIGH);
+  delay(tiempoEspera);
+  digitalWrite(ledRojo, LOW);
 
-  digitalWrite(led, LOW);
-  Serial.println("0");
-  delay(2000);
+  digitalWrite(ledAmarillo, HIGH);
+  delay(tiempoEspera);
+  digitalWrite(ledAmarillo, LOW);
+
+  digitalWrite(ledVerde, HIGH);
+  delay(tiempoEspera);
+  digitalWrite(ledVerde, LOW);
 }
