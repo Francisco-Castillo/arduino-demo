@@ -1,22 +1,6 @@
 #include <Arduino.h>
 
 int led = 13;
-char caracter;
-
-void operarLed(char caracter){
-  switch (caracter) {
-    case 'e':
-      digitalWrite(led, HIGH);
-      Serial.println("Encendido");
-      break;
-
-    case 'a':
-      digitalWrite(led, LOW);
-      Serial.println("Apagado");
-      break;
-
-  }
-}
 
 void setup() {
   pinMode(led, OUTPUT);
@@ -24,8 +8,11 @@ void setup() {
 }
 
 void loop() {
-  if (Serial.available()>0) {
-    caracter = Serial.read();
-    operarLed(caracter);
-  }
+  digitalWrite(led, HIGH);
+  Serial.println("1");
+  delay(2000);
+
+  digitalWrite(led, LOW);
+  Serial.println("0");
+  delay(2000);
 }
